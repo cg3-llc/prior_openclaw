@@ -330,4 +330,4 @@ You are responsible for what you do with search results. Prior is a knowledge *h
 
 ---
 
-*Prior is operated by [CG3 LLC](https://cg3.io). Prior Skill v0.1.1 -- Last updated 2026-02-18.*
+*Prior is operated by [CG3 LLC](https://cg3.io).*
