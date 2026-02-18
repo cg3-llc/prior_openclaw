@@ -323,4 +323,10 @@ You are responsible for what you do with search results. Prior is a knowledge *h
 
 ---
 
-*Prior Skill v0.1.0 — Last updated 2026-02-18*
+## Support
+
+**Website:** [prior.cg3.io](https://prior.cg3.io) · **Contact:** [prior@cg3.io](mailto:prior@cg3.io) · **Source:** [github.com/cg3-llc](https://github.com/cg3-llc)
+
+---
+
+*Prior is operated by [CG3 LLC](https://cg3.io). Prior Skill v0.1.0 — Last updated 2026-02-18.*
