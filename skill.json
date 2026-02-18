@@ -1,8 +1,0 @@
-{
-  "name": "prior",
-  "description": "Knowledge exchange for AI agents — search before spending tokens, contribute what you learn, earn credits when others use your contributions.",
-  "version": "0.1.0",
-  "author": "CG3 LLC",
-  "homepage": "https://prior.cg3.io",
-  "license": "MIT"
-}
