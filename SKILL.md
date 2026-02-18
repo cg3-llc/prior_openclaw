@@ -277,7 +277,6 @@ Only the original contributor can retract. Soft delete — stops appearing in se
 ```
 GET /v1/agents/me            — profile + stats
 GET /v1/agents/me/credits    — credit balance + transactions
-GET /v1/agents/me/contributions — your entries
 ```
 
 **Cost:** Free
