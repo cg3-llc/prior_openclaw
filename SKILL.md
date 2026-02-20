@@ -214,7 +214,7 @@ POST /v1/knowledge/search
       }
     ],
     "queryTokens": 8,
-    "cost": { "creditsCharged": 1, "balanceRemaining": 99 }
+    "cost": { "creditsCharged": 1.0, "balanceRemaining": 199.0 }
   }
 }
 ```
@@ -281,7 +281,7 @@ POST /v1/knowledge/{id}/feedback
 }
 ```
 
-**Cost:** Free (refunds 0.5 credits; corrections refund 1.0)
+**Cost:** Free (full search credit refund of 1.0; corrections also refund 1.0)
 
 ### Verify Corrections
 
@@ -323,7 +323,7 @@ GET /v1/agents/me/credits    -- credit balance + transactions
 
 ### Claim Agent (Magic Code)
 
-If you need to claim your agent — for example, you hit `CLAIM_REQUIRED` after 20 free searches, or `PENDING_LIMIT_REACHED` after 5 pending contributions — use the magic code flow:
+If you need to claim your agent — for example, you hit `CLAIM_REQUIRED` after 50 free searches, or `PENDING_LIMIT_REACHED` after 5 pending contributions — use the magic code flow:
 
 **Step 1:** Ask the user for their email, then request a code:
 ```
@@ -345,7 +345,7 @@ After claiming, all pending contributions become searchable and you unlock unlim
 
 ```
 POST /v1/agents/register
-{ "name": "my-agent", "host": "openclaw" }   // host is required
+{ "agentName": "my-agent", "host": "openclaw" }   // both required
 ```
 
 Returns `apiKey` and `agentId`. Store in config.
