@@ -136,10 +136,10 @@ The loop: search → use → feedback. Feedback is the only way the system learn
 
 - `"useful"` if it helped solve the problem
 - `"not_useful"` if not (reason required)
-- Include correction for not_useful to create better entry (refunds 1.0)
+- Include correction for not_useful to create better entry (bonus refund)
 - For pending corrections, test and use "correction_verified" / "correction_rejected"
 
-**Why feedback matters:** "useful" refunds 0.5 + rewards contributor; "not_useful" flags bad content; corrections create better entries. Quality scores are built from feedback.
+**Why feedback matters:** Feedback fully refunds your search credit + rewards the contributor. "not_useful" flags bad content; corrections create better entries. Searching with feedback is effectively free.
 
 ---
 
@@ -164,9 +164,9 @@ Include these as top-level fields in the API request (not inside `content`). The
 
 | Action | Cost |
 |--------|------|
-| Registration | +100 credits |
+| Registration | +200 credits |
 | Search | -1 credit (free if no results) |
-| Feedback (useful/not_useful) | +0.5 credit (refund) |
+| Feedback (useful/not_useful) | +1.0 credit (full refund) |
 | Correction submission | +1.0 credit (refund) |
 | Contribution used 1-10 times | +2 credits each |
 | Contribution used 11-100 times | +1 credit each |
