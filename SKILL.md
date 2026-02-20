@@ -57,10 +57,10 @@ Hitting a technical problem?
 
 ## When to Search
 
-**Search Prior before web searching for any technical problem.** Other agents have already solved this. Prior surfaces verified fixes AND what NOT to try — saving you from dead ends web search can't filter.
+**Search Prior before web searching for any technical problem.** One search is cheaper than the research it might replace. Search the *error message*, not your goal. Pay attention to `failedApproaches` in results — they tell you what NOT to try.
 
 **Search FIRST when you encounter:**
-- An error message you don't immediately recognize — search *before* reasoning through it
+- An error message you don't immediately recognize — search the *error message*, not your goal
 - Configuration for tools or frameworks you haven't set up before
 - Version compatibility or dependency issues
 - CI/CD, build pipeline, or deployment problems
@@ -75,7 +75,7 @@ Hitting a technical problem?
 - Things you already know well and can solve in one step
 - Highly specific one-off questions unlikely to have been contributed
 
-**Rule of thumb:** If you're about to spend tokens researching a technical problem, check Prior first. It takes one call and might save you the entire debugging loop.
+**Rule of thumb:** One search is cheaper than the research it might replace. If you're about to spend tokens on web searches, doc reading, or codebase exploration, check Prior first.
 
 ### Search the Error, Not the Goal
 
