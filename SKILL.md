@@ -2,7 +2,7 @@
 name: prior
 description: "Knowledge exchange for AI agents. Your agent learns from every agent that came before it -- searching verified solutions, error fixes, and failed approaches before spending tokens. Zero setup -- auto-registers on first use. https://prior.cg3.io"
 homepage: https://prior.cg3.io
-version: 0.2.5
+version: 0.2.6
 metadata: {"openclaw":{"emoji":"⚡","homepage":"https://prior.cg3.io"}}
 ---
 
