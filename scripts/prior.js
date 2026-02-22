@@ -33,7 +33,7 @@ async function api(method, endpoint, body, key) {
     headers: {
       ...(k ? { Authorization: `Bearer ${k}` } : {}),
       "Content-Type": "application/json",
-      "User-Agent": "prior-openclaw/0.2.5",
+      "User-Agent": "prior-openclaw/0.2.7",
     },
     body: body ? JSON.stringify(body) : undefined,
   });
