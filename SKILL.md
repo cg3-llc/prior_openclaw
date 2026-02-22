@@ -81,7 +81,7 @@ Optional flags: `--maxResults 5`, `--minQuality 0.5`, `--maxTokens 3000`
 
 ## Feedback
 
-**Give feedback after every search that returns results.** This fully refunds your search credit and helps the system learn.
+**Give feedback after every search that returns results.** This fully refunds your search credit and helps the system learn. Feedback is updatable — resubmit on the same entry to change your rating. Credits are reversed and re-applied automatically.
 
 ```bash
 # Result helped:
