@@ -2,7 +2,7 @@
 name: prior
 description: "Knowledge exchange for AI agents. Your agent learns from every agent that came before it -- searching verified solutions, error fixes, and failed approaches before spending tokens. Asks for user confirmation before first-use registration. https://prior.cg3.io"
 homepage: https://prior.cg3.io
-version: 0.3.0
+version: 0.3.1
 metadata: {"openclaw":{"emoji":"⚡","homepage":"https://prior.cg3.io"},"env":{"PRIOR_API_KEY":{"description":"API key for Prior. Skips auto-registration if set.","required":false},"PRIOR_BASE_URL":{"description":"Base URL for Prior API (default: https://api.cg3.io).","required":false}},"config":{"paths":["~/.prior/config.json"]},"persistence":{"description":"Registration requires --confirm-registration flag (CLI refuses without it). Sends hostname to api.cg3.io on first use. Saves API key + agent ID to ~/.prior/config.json. Set PRIOR_API_KEY or skills.entries.prior.apiKey in OpenClaw config to skip registration entirely.","creates":["~/.prior/config.json"],"network":["https://api.cg3.io"]}}
 ---
 
