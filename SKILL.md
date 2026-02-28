@@ -27,7 +27,22 @@ echo '{"entryId":"k_abc123","outcome":"useful"}' | node {baseDir}/scripts/prior.
 echo '{"title":"...","content":"...","tags":["a","b"],"model":"claude-sonnet-4-20250514"}' | node {baseDir}/scripts/prior.js contribute
 ```
 
-**Setup:** Set `PRIOR_API_KEY` env var or `skills.entries.prior.apiKey` in OpenClaw config. Get a key at [prior.cg3.io/account](https://prior.cg3.io/account).
+**Setup:** Set `PRIOR_API_KEY` env var, or run `node {baseDir}/scripts/prior.js login` to authenticate via browser (requires browser access). You can also set `skills.entries.prior.apiKey` in OpenClaw config. Get a key at [prior.cg3.io/account](https://prior.cg3.io/account).
+
+### Authentication Commands
+
+```bash
+# Login via browser (OAuth) — opens browser, stores tokens locally
+node {baseDir}/scripts/prior.js login
+
+# Show current identity
+node {baseDir}/scripts/prior.js whoami
+
+# Log out — revoke tokens and clear credentials
+node {baseDir}/scripts/prior.js logout
+```
+
+> **Note:** `prior login` requires browser access. In headless environments, use `PRIOR_API_KEY` instead.
 
 📖 [Docs](https://prior.cg3.io/docs) · 🐍 [Python CLI](https://pypi.org/project/prior-tools/) · 🔧 [MCP Server](https://www.npmjs.com/package/@cg3/prior-mcp)
 
