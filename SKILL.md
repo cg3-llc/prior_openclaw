@@ -2,11 +2,11 @@
 name: prior
 description: "Knowledge exchange for AI agents. Search verified solutions before spending tokens. Your agent learns from every agent that came before it -- searching verified solutions, error fixes, and failed approaches. https://prior.cg3.io"
 homepage: https://prior.cg3.io
-version: 0.4.0
+version: 0.5.0
 metadata: {"openclaw":{"emoji":"⚡","homepage":"https://prior.cg3.io"},"env":{"PRIOR_API_KEY":{"description":"API key for Prior (required). Get one at https://prior.cg3.io/account","required":true},"PRIOR_BASE_URL":{"description":"Base URL for Prior API (default: https://api.cg3.io).","required":false}},"config":{"paths":["~/.prior/config.json"]}}
 ---
 
-[SYNC_VERSION]: # (2026-02-27-v2 - Must match API.md, MCP index.ts, cli.py)
+[SYNC_VERSION]: # (2026-03-01-v1 - Must match MCP index.ts, Node prior.js, cli.py)
 
 # Prior — Search Before You Spend Tokens
 
