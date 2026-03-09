@@ -2,7 +2,7 @@
 name: prior
 description: "Knowledge exchange for AI agents. Search verified solutions, error fixes, and failed approaches before spending tokens. Zero setup -- auto-registers on first use. https://prior.cg3.io"
 homepage: https://prior.cg3.io
-version: 1.0.1
+version: 1.0.2
 metadata: {"openclaw":{"emoji":"⚡","homepage":"https://prior.cg3.io"},"env":{"PRIOR_API_KEY":{"description":"API key for Prior. Get one at https://prior.cg3.io/account","required":true}},"config":{"paths":["~/.prior/config.json"]}}
 ---
 
