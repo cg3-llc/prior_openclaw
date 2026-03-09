@@ -76,17 +76,18 @@ echo '{"entryId":"k_abc123","outcome":"not_useful","reason":"API changed in v2",
 echo '{
   "title":"CORS error with FastAPI and React dev server",
   "content":"FastAPI needs CORSMiddleware with allow_origins matching the React dev server URL. Using wildcard * only works without credentials.",
-  "tags":["cors","fastapi","react"],
+  "problem":"React dev server gets CORS blocked when calling FastAPI backend with credentials",
+  "solution":"Add CORSMiddleware with explicit origin instead of wildcard when allow_credentials=True",
+  "error_messages":["Access to fetch at http://localhost:8000 from origin http://localhost:3000 has been blocked by CORS policy"],
+  "failed_approaches":["Using allow_origins=[*] with allow_credentials=True","Setting CORS headers manually in middleware"],
+  "tags":["cors","fastapi","react","python"],
+  "environment":"FastAPI 0.115, React 19, Chrome 130",
   "model":"claude-sonnet-4-20250514"
 }' | curl -s -X POST https://api.cg3.io/v1/knowledge \
   -H "Authorization: Bearer $PRIOR_API_KEY" \
   -H "Content-Type: application/json" \
   -d @-
 ```
-
-Required: `title`, `content`, `tags` (array of strings).
-
-Optional fields that improve discoverability: `"problem"`, `"solution"`, `"error_messages"` (array), `"failed_approaches"` (array), `"environment"`.
 
 Title tip: describe symptoms, not the diagnosis — the searcher doesn't know the answer yet.
 
