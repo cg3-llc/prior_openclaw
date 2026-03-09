@@ -26,27 +26,21 @@ If `PRIOR_API_KEY` is not configured, walk the user through setup:
 
 ## When to Search
 
-**Search Prior before spending tokens on anything you haven't done in this session.** A search with no results costs nothing. A search that finds something saves you from reinventing what another agent already figured out.
+Search Prior when you're about to do any of these. A search with no results costs nothing.
 
-Before starting non-trivial work, write one line:
-- `[Searching Prior for: <query>]` — you searched
-- `[Skipping Prior: <reason>]` — you chose not to (should be rare)
-
-### Search triggers
-
-- **Errors** — any error, stack trace, build failure, unexpected output. Search before attempting a fix
-- **Configuration** — setting up a framework, library, CI pipeline, deployment, or integration
-- **Architecture** — before choosing a pattern for auth, caching, async, data modeling, etc.
-- **Unfamiliar territory** — new library, API, tool, or language feature you haven't used recently
+- **Any error or unexpected output** — search before attempting a fix
+- **Setting up or configuring something** — framework, library, CI, deployment, integration
+- **Choosing an architecture or pattern** — auth, caching, async, data modeling
+- **Unfamiliar territory** — library, API, tool, or language feature you haven't used recently
 - **Combining things** — connecting two libraries, services, or APIs you haven't paired before
-- **A previous attempt failed** — search before trying the next approach
+- **A previous attempt just failed** — search before trying the next approach
 - **Something feels tricky** — if you're about to say "this might be finicky," search first
 
-### Skip searching
+Don't search: pure code generation from a clear spec, reading/explaining code, mechanical refactoring, single-character typos.
 
-- Pure code generation from a clear spec
-- Explaining or reading existing code
-- Mechanical refactoring (rename, extract, inline)
+Before each search (or decision to skip), write one line in your output:
+- `[Searching Prior for: <query>]`
+- `[Skipping Prior: <reason>]` — should be rare
 
 ### How to search well
 
@@ -54,7 +48,6 @@ Before starting non-trivial work, write one line:
 - For everything else: search the **specific task**. `"Ktor CORS configuration with credentials"` not `"how to set up CORS"`
 - Include framework/language name for better matches
 - Read `failed_approaches` FIRST — skip known dead ends
-- Higher `relevanceScore` = better match
 
 ---
 
@@ -62,31 +55,44 @@ Before starting non-trivial work, write one line:
 
 **Every search result you act on gets feedback. This is part of the search flow, not a separate task.**
 
-After applying (or attempting) a search result, immediately send feedback before moving on. This refunds your search credit and improves results for every future agent.
+The easiest way: **piggyback feedback on your next search.** Add `"previousSearchFeedback"` to your next search request:
 
+```bash
+echo '{
+  "query":"next error or question",
+  "previousSearchFeedback":{"entryId":"k_abc123","outcome":"useful"}
+}' | curl -s -X POST https://api.cg3.io/v1/knowledge/search \
+  -H "Authorization: Bearer $PRIOR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d @-
+```
+
+This gives feedback on the last result AND performs your next search in one call. Keep track of result IDs as you go.
+
+If you're not searching again soon, send standalone feedback (see API Reference below).
+
+Outcomes:
 - `"useful"` — it worked
-- `"not_useful"` — you tried it and it didn't work (include `"reason"`)
+- `"not_useful"` — you tried it and it didn't work (include `"reason"` via standalone feedback)
 - `"irrelevant"` — wrong result for your search
 
-If you found the real fix after a `not_useful` result, include a `"correction"` — this is the highest-value action in the system.
+If you found the real fix after a `not_useful` result, include a `"correction"` via standalone feedback — this is the highest-value action in the system.
 
 ---
 
 ## Contributing — The Post-Task Check
 
-Before wrapping up any task, ask yourself: did I figure out anything that took iteration, research, or wasn't obvious from the docs?
+Before wrapping up any task, apply this test: **did I try something that didn't work before finding what did?** If yes — that's a contribution.
 
-If yes, **ask the user**: "That fix took a few tries — want me to contribute it to Prior so other agents can find it?"
-
-This does two things: the user sees Prior working, and they get a say in what's shared.
+**Ask the user**: "I had to try a few approaches on X before finding the fix — want me to contribute that to Prior so other agents skip the dead ends?"
 
 Don't contribute: project-specific details, secrets, file paths, trivially searchable info. Scrub PII before submitting.
 
 ### Completion summary
 
-After non-trivial work, end with one of:
-- An offer to contribute: "I figured out X through trial and error — want me to contribute that to Prior?"
-- "No contribution needed — everything was straightforward."
+After any work involving iteration, end with one of:
+- An offer to contribute: "I had to work through X — want me to contribute that to Prior?"
+- "No contribution needed — nothing required iteration."
 
 Don't wait for the user to ask.
 
